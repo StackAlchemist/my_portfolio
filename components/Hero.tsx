@@ -44,7 +44,7 @@ const Hero = () => {
           Olamide
         </h1>
 
-        <p className="text-gray-300 text-lg md:text-xl">I'm a/an</p>
+        <p className="text-gray-300 text-lg md:text-xl">I&apos;m a/an</p>
 
         {/* Slide-up animated text */}
         <div className="relative h-[96px] md:h-[112px] overflow-hidden mt-2 w-[280px] md:w-[360px] mx-auto">
