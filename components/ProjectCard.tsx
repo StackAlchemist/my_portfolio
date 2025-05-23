@@ -12,7 +12,7 @@ const ProjectCard = ({
 }) => {
   return (
     <div className="group transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] border border-transparent hover:border-cyan-400 rounded-2xl bg-[#1a1a1a]">
-      <div className="flex flex-col md:flex-row-reverse w-full max-w-6xl mx-auto items-center justify-between p-6 md:p-10 space-y-6 md:space-y-0 md:space-x-10">
+      <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto items-center justify-between p-6 md:p-10 space-y-6 md:space-y-0 md:space-x-10">
         {/* Text Section */}
         <div className="flex-1 text-left">
           <h2 className="text-white text-3xl font-extrabold mb-4">{text}</h2>
@@ -27,7 +27,7 @@ const ProjectCard = ({
         </div>
 
 {/* Image Section */}
-<div className="relative w-full h-[250px] md:h-[400px] rounded-lg overflow-hidden shadow-md">
+<div className="relative w-full md:w-1/2 h-[250px] md:h-[400px] rounded-lg overflow-hidden shadow-md">
   <Image
     src={image}
     alt="Project Image"

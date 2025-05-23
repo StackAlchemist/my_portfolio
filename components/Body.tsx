@@ -68,10 +68,10 @@ const Body = () => {
 
   return (
     <div>
-        <section className="flex flex-col gap-3 justify-center items-center bg-black">
-            <div>
+        <section className="flex flex-col gap-3 justify-center items-center bg-black py-4">
+            {/* <div>
                 <img src="/assets/King Baldwin drip 💯🔥.jpeg" alt="logo" width={100} height={100} />
-            </div>
+            </div> */}
             {/* <h2 className="text-black text-2xl font-bold">My Stacks</h2>
              */}
              <Heading text="My Stacks" />

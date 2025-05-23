@@ -11,7 +11,7 @@ const Hero = () => {
       setIndex((prev) => (prev + 1) % words.length);
     }, 2500);
     return () => clearInterval(timer);
-  }, []);
+  }, [words]);
 
   return (
     <div
@@ -37,7 +37,7 @@ const Hero = () => {
       {/* Main content */}
       <div className="relative z-20 px-4 max-w-3xl text-center">
         <p className="text-cyan-400 font-semibold text-lg md:text-xl mb-1 drop-shadow">
-          Hey there, I'm
+          Hey there, I&apos;m
         </p>
 
         <h1 className="text-white text-5xl md:text-7xl font-extrabold mb-2 drop-shadow-lg">
