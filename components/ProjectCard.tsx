@@ -5,10 +5,12 @@ const ProjectCard = ({
   text,
   image,
   link,
+  role,
 }: {
   text: string;
   image: string;
   link: string;
+  role: string;
 }) => {
   return (
     <div className="group transition-all duration-300 hover:shadow-2xl hover:scale-[1.01] border border-transparent hover:border-cyan-400 rounded-2xl bg-[#1a1a1a]">
@@ -24,6 +26,7 @@ const ProjectCard = ({
             voluptas voluptatibus excepturi, reprehenderit praesentium illum
             molestias placeat nobis earum?
           </p>
+          <p className="text-cyan-400 text-base leading-relaxed mt-4">{role}</p>
         </div>
 
 {/* Image Section */}
@@ -46,6 +49,7 @@ const ProjectCard = ({
           href={link}
           className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold bg-cyan-400 text-[#1a1a1a] hover:bg-cyan-300 transition-all duration-300 group/button"
         >
+          
           View Project
           <Image src="/icons/arrow-up-right.svg" width={20} height={20} alt="Arrow Up Right" className="w-5 h-5 transition-transform group-hover/button:rotate-45" />
         </Link>
