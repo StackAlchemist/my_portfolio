@@ -17,6 +17,12 @@ interface Track {
   src: string;
 }
 
+// interface s {
+//   name: string;
+//   artist: string;
+//   src: string;
+// }
+
 const TRACKS: Track[] = [
   {
     name: "Eko",          // ← replace with real song name
