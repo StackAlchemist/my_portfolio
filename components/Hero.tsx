@@ -1,74 +1,94 @@
 "use client";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import Link from "next/link";
+
+const roles = ["Developer 👨🏾‍💻", "Designer 🎨", "Video Editor 📽️", "Innovator 🚀"];
 
 const Hero = () => {
-  const words = ["Developer👨🏾‍💻", "Designer🎨", "Video Editor📽️", "Innovator🚀"];
-  const [index, setIndex] = useState(0);
+  const [roleIdx, setRoleIdx] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % words.length);
-    }, 2500);
-    return () => clearInterval(timer);
-  }, [words]);
+    const t = setInterval(() => setRoleIdx(i => (i + 1) % roles.length), 2500);
+    return () => clearInterval(t);
+  }, []);
 
   return (
-    <div
-      className="relative h-screen w-full flex items-center justify-center text-center overflow-hidden"
-      style={{
-        backgroundImage: `url('/3d-rendering-abstract-black-white-background.jpg')`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    >
-      {/* Decorative image */}
-      <Image
-        src="/assets/metal1.png"
-        alt="Metal Overlay"
-        width={300}
-        height={300}
-        className="absolute z-30 -left-20 -top-20 opacity-40"
-      />
+    <section id="hero" className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      style={{ padding: "100px 6vw 80px" }}>
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/60 z-10" />
+      {/* Background orbs */}
+      <div className="pointer-events-none fixed rounded-full"
+        style={{ width: 500, height: 500, background: 'var(--accent)', filter: 'blur(140px)',
+          opacity: 0.1, top: -120, right: -100 }} />
+      <div className="pointer-events-none fixed rounded-full"
+        style={{ width: 400, height: 400, background: 'var(--accent2)', filter: 'blur(140px)',
+          opacity: 0.08, bottom: '10%', left: -80 }} />
 
-      {/* Main content */}
-      <div className="relative z-20 px-4 max-w-3xl text-center">
-        <p className="text-cyan-400 font-semibold text-lg md:text-xl mb-1 drop-shadow">
-          Hey there, I&apos;m
-        </p>
+      {/* Decorative BG text */}
+      <span className="syne pointer-events-none select-none absolute right-[4vw] top-1/2 -translate-y-1/2 font-extrabold leading-none"
+        style={{ fontSize: 'clamp(180px, 24vw, 340px)', color: 'transparent',
+          WebkitTextStroke: '1px rgba(255,255,255,0.04)', letterSpacing: '-0.06em' }}>
+        OLA
+      </span>
 
-        <h1 className="text-white text-5xl md:text-7xl font-extrabold mb-2 drop-shadow-lg">
-          Olamide
-        </h1>
+      {/* Eyebrow */}
+      <p className="mono animate-fade-up mb-7 flex items-center gap-2 text-xs uppercase tracking-widest"
+        style={{ color: 'var(--muted)', animationDelay: '0.2s' }}>
+        <span className="block h-px w-7" style={{ background: 'var(--accent)' }} />
+        Available for work &nbsp;·&nbsp;{" "}
+        <em className="not-italic" style={{ color: 'var(--accent)' }}>Ibadan, Nigeria</em>
+      </p>
 
-        <p className="text-gray-300 text-lg md:text-xl">I&apos;m a/an</p>
+      {/* Name */}
+      <h1 className="syne animate-fade-up font-extrabold leading-none"
+        style={{ fontSize: 'clamp(64px, 12vw, 160px)', letterSpacing: '-0.04em',
+          color: 'var(--text)', animationDelay: '0.3s' }}>
+        Jimoh<br />Olamide<span style={{ color: 'var(--accent)' }}>.</span>
+      </h1>
 
-        {/* Slide-up animated text */}
-        <div className="relative h-[96px] md:h-[112px] overflow-hidden mt-2 w-[280px] md:w-[360px] mx-auto">
-          <div
-            className="transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateY(-${index * 6}rem)` }}
-          >
-            {words.map((word, i) => (
-              <div
-                key={i}
-                className="h-24 flex items-center justify-center font-bold text-3xl md:text-5xl text-cyan-400 drop-shadow-lg"
-              >
-                {word}
-              </div>
-            ))}
-          </div>
-        </div>
+      {/* Role tags */}
+      <div className="animate-fade-up mt-8 flex flex-wrap gap-2.5" style={{ animationDelay: '0.45s' }}>
+        {roles.map((r, i) => (
+          <span key={r} className="rounded-full border px-4 py-2 text-sm font-medium transition-all duration-300"
+            style={{
+              borderColor: i === roleIdx ? 'var(--accent)' : 'var(--border)',
+              color: i === roleIdx ? 'var(--accent)' : 'var(--muted)',
+              background: i === roleIdx ? 'rgba(200,255,87,0.06)' : 'transparent',
+            }}>
+            {r}
+          </span>
+        ))}
       </div>
 
-      {/* Scroll Down Prompt */}
-      <div className="absolute bottom-6 right-6 z-20 animate-bounce text-cyan-400 text-sm font-medium">
-        ↓ Scroll down
+      {/* Description */}
+      <p className="animate-fade-up mt-10 max-w-lg text-base leading-relaxed"
+        style={{ color: 'var(--muted)', animationDelay: '0.55s' }}>
+        Full-stack developer & designer building digital products that are fast, beautiful, and purposeful.
+        I turn ideas into production-ready experiences.
+      </p>
+
+      {/* CTAs */}
+      <div className="animate-fade-up mt-11 flex flex-wrap gap-3.5" style={{ animationDelay: '0.65s' }}>
+        <Link href="#projects"
+          className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold transition-all hover:-translate-y-0.5 hover:opacity-90"
+          style={{ background: 'var(--accent)', color: 'var(--bg)' }}>
+          View my work ↓
+        </Link>
+        <a href="https://github.com/StackAlchemist" target="_blank" rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-sm font-medium transition-all hover:-translate-y-0.5"
+          style={{ borderColor: 'var(--border)', color: 'var(--text)' }}>
+          GitHub ↗
+        </a>
       </div>
-    </div>
+
+      {/* Scroll hint */}
+      <div className="mono absolute bottom-9 right-[6vw] flex flex-col items-center gap-2 text-[10px] uppercase tracking-widest"
+        style={{ color: 'var(--muted)' }}>
+        <div className="animate-scroll-pulse w-px h-12"
+          style={{ background: 'linear-gradient(to bottom, var(--accent), transparent)' }} />
+        scroll
+      </div>
+    </section>
   );
 };
 
