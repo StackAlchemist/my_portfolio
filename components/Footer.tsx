@@ -1,4 +1,4 @@
-import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   return (
@@ -44,6 +44,11 @@ const Footer = () => {
               className="inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-250 hover:-translate-y-0.5"
               style={{ borderColor: "var(--border)", color: "var(--muted)" }}>
               <FaXTwitter size={16} /> Twitter / X
+            </a>
+            <a href="https://wa.link/7g4fo9" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border px-5 py-2.5 text-sm font-medium transition-all duration-250 hover:-translate-y-0.5"
+              style={{ borderColor: "var(--border)", color: "var(--muted)" }}>
+              <FaWhatsapp size={16} /> WhatsApp
             </a>
           </div>
         </div>
